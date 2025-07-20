@@ -1,0 +1,49 @@
+Step 1: Generate the Visual Design (Prompt for Image AI)
+This prompt will create the visual blueprint for your app.
+
+Copy this entire prompt and give it to an AI Image Generator:
+
+A UI/UX design for a modern mobile fitness app called 'Walk-and-Earn'. The style is sleek Glassmorphism, inspired by https://preview.builtwithrocket.new/glassauth-98bfe95.
+
+The primary colors are a vibrant, healthy green with luxurious gold accents for earnings. The background should be a soft, abstract gradient.
+
+Show multiple screens in one image:
+
+Login Screen: A central, frosted glass panel with fields for a mobile number and OTP.
+
+Home Dashboard: A main screen showing a large, glowing circular progress bar for a 30-minute walk timer. Inside the circle, a "Start Walk" button. Small glass panels at the top display the user's wallet balance and daily streak.
+
+Wallet Screen: A screen with the total balance in a large glass panel, followed by a vertical list of transaction history cards, each with the glassmorphism effect.
+
+Step 2: Generate the Code (Prompt for Code AI)
+After you have the visual style from the image AI, give this detailed prompt to an AI Code Generator.
+
+Copy this entire prompt and give it to an AI Code Generator:
+
+I am building an Android app in Kotlin called 'Walk-and-Earn'. The design style is Glassmorphism, based on the visual concepts we've generated. The backend API is already complete. Please provide the XML layouts and the core Kotlin logic for the following screens.
+
+1. Login Screen (activity_login.xml & Login.kt):
+
+Layout: A background with a soft gradient. A central, semi-transparent frosted glass panel containing an EditText for the mobile number and a Button for "Send OTP".
+
+Logic: When the button is clicked, make a POST request to my backend endpoint http://127.0.0.1:5000/register using the Retrofit library.
+
+2. Home Dashboard (activity_main.xml & Main.kt):
+
+Layout: A glassmorphism design. At the top, two small glass panels for displaying wallet balance and streak. In the center, a large CircularProgressBar representing the 30-minute walk. Inside it, a prominent "Start Walk" button.
+
+Logic: On screen load, make an authenticated GET request to http://127.0.0.1:5000/profile to fetch and display the data. The "Start Walk" button should navigate to the Walking Session screen.
+
+3. Walking Session (activity_walk.xml & Walk.kt):
+
+Layout: A full-screen map view from MapmyIndia. Overlayed at the bottom is a glass panel showing a live 30-minute countdown timer, step count, and distance.
+
+Logic: Start a foreground service to track GPS and pedometer data. When the 30-minute timer completes, send the results in a POST request to http://127.0.0.1:5000/walks/complete.
+
+4. Wallet & Redeem Screen (activity_wallet.xml & Wallet.kt):
+
+Layout: The total wallet balance in a large glass panel at the top. Below, a RecyclerView where each item is a glassmorphic card showing a past transaction. At the bottom, a "Redeem Offers" button.
+
+Logic: The "Redeem Offers" button opens a new screen displaying a grid of products available for in-app purchase, which will act as the redemption method.
+
+This two-step process—getting the visual design first, then using it to guide the code generation—is the most effective and fastest methodology.
